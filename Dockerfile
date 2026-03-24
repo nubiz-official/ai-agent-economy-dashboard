@@ -5,5 +5,4 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY streamlit_app/ ./streamlit_app/
 EXPOSE 8501
-ENV STREAMLIT_SERVER_PORT=8501
-CMD streamlit run streamlit_app/app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true
+CMD sh -c "streamlit run streamlit_app/app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true"
